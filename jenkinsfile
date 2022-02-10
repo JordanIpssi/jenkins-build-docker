@@ -1,0 +1,8 @@
+node{
+    stage('setup_ansible') {
+        'ansible -m ping -i inventaire 192.168.1.64'
+    }
+    stage('install_pgk'){
+        'ansible -i inventaire 192.168.1.64 -m yum -a "name=bash-completion state=present"'
+    }
+}
